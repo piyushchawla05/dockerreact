@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t piyush/dockerreact -f Dockerfile.dev .
+
+script:
+    - docker run -e CI=true piyush/dockerreact npm run test
